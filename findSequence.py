@@ -2,29 +2,35 @@ import re
 
 # Functions to check if sequence exists in list
 
+# Naive algorithm
+
 def checkSequence1(arr, seq):
-    res = True
-    for ele in seq:
+    result = True
+    for element in seq:
         try:
-            index = arr.index(ele) 
+            index = arr.index(element) 
             arr = arr[index+1:]
         except ValueError:
-            res = False 
+            result = False 
             break 
 
-    if res:
+    if result:
         print("Match exists")
     else:
         print("Match doesn't exist")
 
+# Using RegEx
+        
 def checkSequence2(arr, seq):
-    input_str = "".join("<"+str(i)+">" for i in arr)
-    lookup_str = ".*" + ".+".join("<"+str(i)+">" for i in seq) + ".+"
-    x = re.search(lookup_str, input_str)
+    data_str = "".join("<"+str(i)+">" for i in arr)
+    attack_str = ".*" + ".+".join("<"+str(i)+">" for i in seq) + ".+"
+    x = re.search(data_str, attack_str)
     if x:
         print("Match exists")
     else:
         print("Match doesn't exist")
+
+# Improvised algorithm using two pointers
 
 def checkSequence3(arr, seq):
     i = 0
