@@ -1,6 +1,6 @@
 # Sequence Detection
 
-Purpose : To check if attack sequence exists in audit log 
+Program to check if an attack sequence exists in a given log dataset.
 
 Language : Python
 
